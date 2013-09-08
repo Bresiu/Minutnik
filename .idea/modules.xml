@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Minutnik/Minutnik.iml" filepath="$PROJECT_DIR$/Minutnik/Minutnik.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MinutnikProject.iml" filepath="$PROJECT_DIR$/MinutnikProject.iml" />
+    </modules>
+  </component>
+</project>
+
