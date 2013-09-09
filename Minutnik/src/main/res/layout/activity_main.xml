@@ -1,38 +1,157 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:id="@+id/scrollView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:id="@+id/startstop"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/interwal"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignRight="@+id/interwal" />
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberSigned"
-        android:ems="10"
-        android:id="@+id/interwal"
-        android:layout_alignTop="@+id/textView"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_alignParentRight="true" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:text="Minuty Marszu:" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Interwał [m]:"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/minuty_marszu"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Minuty Biegu:" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/minuty_biegu"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Liczba Powtórzeń:" />
+
+        <EditText
+            android:id="@+id/minuty_marszu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/button"
+            android:layout_toRightOf="@+id/button"
+            android:ems="3"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:text="0" />
+
+        <EditText
+            android:id="@+id/minuty_biegu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/button3"
+            android:layout_toRightOf="@+id/button3"
+            android:ems="3"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:text="0" />
+
+        <EditText
+            android:id="@+id/liczba_powtorzen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/button5"
+            android:layout_toRightOf="@+id/button5"
+            android:ems="3"
+            android:gravity="center"
+            android:inputType="numberSigned"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/button"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button5"
+            android:layout_alignTop="@+id/textView"
+            android:onClick="onClick"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/button2"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/button"
+            android:layout_toRightOf="@+id/minuty_marszu"
+            android:onClick="onClick"
+            android:text="+" />
+
+        <Button
+            android:id="@+id/button3"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button5"
+            android:layout_alignTop="@+id/textView2"
+            android:onClick="onClick"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/button4"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/button3"
+            android:layout_toRightOf="@+id/minuty_biegu"
+            android:onClick="onClick"
+            android:text="+" />
+
+        <Button
+            android:id="@+id/button5"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView3"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/textView3"
+            android:onClick="onClick"
+            android:text="-" />
+
+        <Button
+            android:id="@+id/button6"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/button5"
+            android:layout_toRightOf="@+id/liczba_powtorzen"
+            android:onClick="onClick"
+            android:text="+" />
+
+        <Button
+            android:id="@+id/zero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/liczba_powtorzen"
+            android:layout_marginTop="15dp"
+            android:onClick="onClick"
+            android:text="Wyzeruj zmienne" />
+
+        <Button
+            android:id="@+id/startstop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/zero"
+            android:layout_marginTop="15dp"
+            android:onClick="onClick" />
+    </RelativeLayout>
+
+</ScrollView>
