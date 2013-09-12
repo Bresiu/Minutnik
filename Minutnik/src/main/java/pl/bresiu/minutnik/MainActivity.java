@@ -16,15 +16,18 @@ import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    final String ALARMS = "alarms";
-    final String PREFERENCES_NAME = "preferences";
+    final String ALARMS = getString(R.string.alarms);
+    final String PREFERENCES_NAME = getString(R.string.preferences);
     SharedPreferences preferences;
     SharedPreferences.Editor preferencesEditor;
-    EditText marsz;
-    EditText bieg;
-    EditText powtorzenia;
-    Button startstop;
-    Button zeruj;
+    EditText editMarch;
+    EditText editRun;
+    EditText editRepeats;
+    Button btnStartStop;
+    Button btnZero;
+    Button button;
+    Button button3;
+    Button button5;
     ArrayList<PendingIntent> intentArray = new ArrayList<PendingIntent>();
     AlarmManager[] alarmManager;
 
@@ -37,69 +40,72 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setWidgets();
     }
 
-    public void setWidgets() {
-        marsz = (EditText) findViewById(R.id.minuty_marszu);
-        bieg = (EditText) findViewById(R.id.minuty_biegu);
-        powtorzenia = (EditText) findViewById(R.id.liczba_powtorzen);
-        zeruj = (Button) findViewById(R.id.zero);
-        startstop = (Button) findViewById(R.id.startstop);
-        startstop.setText((isWorking()) ? "STOP" : "START");
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.startstop:
                 if (isWorking()) {
                     preferencesEditor.putInt(ALARMS, 0);
-                    startstop.setText("START");
+                    btnStartStop.setText(getString(R.string.start));
                     deleteSchedule();
                 } else {
-                    startstop.setText("STOP");
+                    btnStartStop.setText(getString(R.string.stop));
                     makeSchedule();
                 }
                 break;
             case R.id.zero:
-                marsz.setText("0");
-                bieg.setText("0");
-                powtorzenia.setText("0");
+                editMarch.setText(getString(R.string.zero));
+                editRun.setText(getString(R.string.zero));
+                editRepeats.setText(getString(R.string.zero));
                 break;
             case R.id.button:
-                if (isInt(marsz)) {
-                    setM(marsz);
+                if (isInt(editMarch)) {
+                    setM(editMarch, button);
                 }
                 break;
             case R.id.button2:
-                if (isInt(marsz)) {
-                    setP(marsz);
+                if (isInt(editMarch)) {
+                    setP(editMarch, button);
                 }
                 break;
             case R.id.button3:
-                if (isInt(bieg)) {
-                    setM(bieg);
+                if (isInt(editRun)) {
+                    setM(editRun, button3);
                 }
                 break;
             case R.id.button4:
-                if (isInt(bieg)) {
-                    setP(bieg);
+                if (isInt(editRun)) {
+                    setP(editRun, button3);
                 }
                 break;
             case R.id.button5:
-                if (isInt(powtorzenia)) {
-                    setM(powtorzenia);
+                if (isInt(editRepeats)) {
+                    setM(editRepeats, button5);
                 }
                 break;
             case R.id.button6:
-                if (isInt(powtorzenia)) {
-                    setP(powtorzenia);
+                if (isInt(editRepeats)) {
+                    setP(editRepeats, button5);
                 }
                 break;
         }
     }
 
+    public void setWidgets() {
+        editMarch = (EditText) findViewById(R.id.editMinutesOfMarch);
+        editRun = (EditText) findViewById(R.id.editMinutesOfRun);
+        editRepeats = (EditText) findViewById(R.id.editNumberOfRepeats);
+        btnZero = (Button) findViewById(R.id.zero);
+        btnStartStop = (Button) findViewById(R.id.startstop);
+        btnStartStop.setText((isWorking()) ? getString(R.string.stop) : getString(R.string.start));
+        button = (Button) findViewById(R.id.button);
+        button3 = (Button) findViewById(R.id.button3);
+        button5 = (Button) findViewById(R.id.button5);
+    }
+
     private boolean isInt(EditText editText) {
         try {
-            Integer.parseInt(editText.getText().toString());
+            toInt(editText);
             return true;
         } catch (NumberFormatException e) {
             e.printStackTrace();
@@ -110,16 +116,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    private void setM(EditText editText) {
-        int tmp = Integer.parseInt(editText.getText().toString());
-        if (tmp > 0) {
-            editText.setText("" + --tmp);
-        }
+    private int toInt(EditText editText) {
+        return Integer.parseInt(editText.getText().toString());
     }
 
-    private void setP(EditText editText) {
-        int tmp = Integer.parseInt(editText.getText().toString());
-        editText.setText("" + ++tmp);
+    private void setM(EditText editText, Button btn) {
+        int tmp = toInt(editText);
+        if (tmp > 0) {
+            editText.setText(getString(R.string.blank) + --tmp);
+            if (tmp == 0) btn.setEnabled(false);
+        } else btn.setEnabled(false);
+    }
+
+    private void setP(EditText editText, Button btn) {
+        int tmp = toInt(editText);
+        editText.setText(getString(R.string.blank) + ++tmp);
+        if (!btn.isEnabled()) btn.setEnabled(true);
     }
 
     public boolean isWorking() {
@@ -128,44 +140,27 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public List<Integer> makeList() {
         List<Integer> list = new ArrayList<Integer>();
+        int minutesOfMarch;
+        int minutesOfRun;
+        int numberOfRepeats;
 
-        int numberOfRepeats = 0;
-        int minutesOfMarch = 0;
-        int minutesOfRun = 0;
-        //TODO
-        if (powtorzenia.getText().toString().matches("") ||
-                marsz.getText().toString().matches("") ||
-                bieg.getText().toString().matches("")) {
-            return null;
-        } else {
-            try {
-                numberOfRepeats = Integer.parseInt(powtorzenia.getText().toString());
-                minutesOfMarch = Integer.parseInt(marsz.getText().toString());
-                minutesOfRun = Integer.parseInt(bieg.getText().toString());
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return null;
-            } catch (java.lang.NullPointerException l) {
-                l.printStackTrace();
-                return null;
-            }
+        if (isInt(editMarch) && isInt(editRun) && isInt(editRepeats)) {
+            minutesOfMarch = toInt(editMarch);
+            minutesOfRun = toInt(editRun);
+            numberOfRepeats = toInt(editRepeats);
             for (int i = 0; i < numberOfRepeats; i++) {
                 list.add(minutesOfMarch);
                 list.add(minutesOfRun);
             }
             return list;
-        }
+        } else return null;
     }
 
     public void makeSchedule() {
         List<Integer> list = makeList();
-        if (list == null) {
-            Toast.makeText(this, "Wprowadź wszystkie dane!", Toast.LENGTH_SHORT).show();
-            preferencesEditor.putInt(ALARMS, 0);
-            startstop.setText("START");
-            deleteSchedule();
-        } else {
-            deleteSchedule();
+        if (list == null)
+            Toast.makeText(this, getString(R.string.fill_data), Toast.LENGTH_SHORT).show();
+        else {
             alarmManager = new AlarmManager[list.size()];
             Calendar cal = Calendar.getInstance();
             for (int i = 0; i < list.size(); i++) {

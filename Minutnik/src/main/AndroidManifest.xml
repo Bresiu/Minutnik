@@ -8,6 +8,10 @@
         android:minSdkVersion="7"
         android:targetSdkVersion="18" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-feature
+        android:name="there.isnt.a.vibrate.feature"
+        android:required="false" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -23,13 +27,10 @@
         </activity>
         <receiver
             android:name="AlarmReceiver"
-            android:process=":remote"></receiver>
+            android:process=":remote" />
 
-        <service android:name=".TaskService"></service>
+        <service android:name=".TaskService" />
         <service android:name=".TaskService" />
     </application>
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-feature
-        android:name="there.isnt.a.vibrate.feature"
-        android:required="false" />
+
 </manifest>

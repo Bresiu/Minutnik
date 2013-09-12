@@ -2,7 +2,18 @@
 <resources>
 
     <string name="app_name">Minutnik</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="fill_data">Wprowadź wszystkie dane!</string>
+    <string name="blank" />
+    <string name="stop">STOP</string>
+    <string name="start">START</string>
+    <string name="zero">0</string>
+    <string name="alarms">alarms</string>
+    <string name="preferences">preferences</string>
+    <string name="zeroVariables">Wyzeruj zmienne</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="MinutesOfMarch">Minuty Marszu:</string>
+    <string name="MinutesOfRun">Minuty Biegu:</string>
+    <string name="NumbersOfRepeats">Liczba Powtórzeń:</string>
 
 </resources>

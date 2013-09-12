@@ -20,7 +20,7 @@ public class TaskService extends IntentService {
         handler.post(new Runnable() {
             public void run() {
                 try {
-                    Vibrator vibrator = (Vibrator) getSystemService(getBaseContext().VIBRATOR_SERVICE);
+                    Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
                     vibrator.vibrate(200);
                     MediaPlayer sound = MediaPlayer.create(getBaseContext(), R.raw.sound);
                     sound.start();

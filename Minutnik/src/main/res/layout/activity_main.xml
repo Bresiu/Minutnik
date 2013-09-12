@@ -7,71 +7,71 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/activity_margin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textMinutesOfMarch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:gravity="center"
-            android:text="Minuty Marszu:" />
+            android:text="@string/MinutesOfMarch" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textMinutesOfRun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/minuty_marszu"
-            android:layout_marginTop="15dp"
+            android:layout_below="@+id/editMinutesOfMarch"
+            android:layout_marginTop="@dimen/activity_margin"
             android:gravity="center"
-            android:text="Minuty Biegu:" />
+            android:text="@string/MinutesOfRun" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textNumberOfRepeats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/minuty_biegu"
-            android:layout_marginTop="15dp"
+            android:layout_below="@+id/editMinutesOfRun"
+            android:layout_marginTop="@dimen/activity_margin"
             android:gravity="center"
-            android:text="Liczba Powtórzeń:" />
+            android:text="@string/NumbersOfRepeats" />
 
         <EditText
-            android:id="@+id/minuty_marszu"
+            android:id="@+id/editMinutesOfMarch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/button"
             android:layout_toRightOf="@+id/button"
+            android:inputType="number"
             android:ems="3"
             android:gravity="center"
-            android:inputType="numberSigned"
-            android:text="0" />
+            android:text="@string/zero" />
 
         <EditText
-            android:id="@+id/minuty_biegu"
+            android:id="@+id/editMinutesOfRun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/button3"
             android:layout_toRightOf="@+id/button3"
+            android:inputType="number"
             android:ems="3"
             android:gravity="center"
-            android:inputType="numberSigned"
-            android:text="0" />
+            android:text="@string/zero" />
 
         <EditText
-            android:id="@+id/liczba_powtorzen"
+            android:id="@+id/editNumberOfRepeats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/button5"
             android:layout_toRightOf="@+id/button5"
+            android:inputType="number"
             android:ems="3"
             android:gravity="center"
-            android:inputType="numberSigned"
-            android:text="0" />
+            android:text="@string/zero" />
 
         <Button
             android:id="@+id/button"
@@ -79,9 +79,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/button5"
-            android:layout_alignTop="@+id/textView"
+            android:layout_alignTop="@+id/textMinutesOfMarch"
             android:onClick="onClick"
-            android:text="-" />
+            android:text="@string/minus" />
 
         <Button
             android:id="@+id/button2"
@@ -89,9 +89,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/button"
-            android:layout_toRightOf="@+id/minuty_marszu"
+            android:layout_toRightOf="@+id/editMinutesOfMarch"
             android:onClick="onClick"
-            android:text="+" />
+            android:text="@string/plus" />
 
         <Button
             android:id="@+id/button3"
@@ -99,9 +99,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/button5"
-            android:layout_alignTop="@+id/textView2"
+            android:layout_alignTop="@+id/textMinutesOfRun"
             android:onClick="onClick"
-            android:text="-" />
+            android:text="@string/minus" />
 
         <Button
             android:id="@+id/button4"
@@ -109,20 +109,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/button3"
-            android:layout_toRightOf="@+id/minuty_biegu"
+            android:layout_toRightOf="@+id/editMinutesOfRun"
             android:onClick="onClick"
-            android:text="+" />
+            android:text="@string/plus" />
 
         <Button
             android:id="@+id/button5"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView3"
-            android:layout_marginLeft="15dp"
-            android:layout_toRightOf="@+id/textView3"
+            android:layout_alignTop="@+id/textNumberOfRepeats"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_toRightOf="@+id/textNumberOfRepeats"
             android:onClick="onClick"
-            android:text="-" />
+            android:text="@string/minus" />
 
         <Button
             android:id="@+id/button6"
@@ -130,19 +130,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/button5"
-            android:layout_toRightOf="@+id/liczba_powtorzen"
+            android:layout_toRightOf="@+id/editNumberOfRepeats"
             android:onClick="onClick"
-            android:text="+" />
+            android:text="@string/plus" />
 
         <Button
             android:id="@+id/zero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/liczba_powtorzen"
-            android:layout_marginTop="15dp"
+            android:layout_below="@+id/editNumberOfRepeats"
+            android:layout_marginTop="@dimen/activity_margin"
             android:onClick="onClick"
-            android:text="Wyzeruj zmienne" />
+            android:text="@string/zeroVariables" />
 
         <Button
             android:id="@+id/startstop"
@@ -150,7 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/zero"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/activity_margin"
             android:onClick="onClick" />
     </RelativeLayout>
 
