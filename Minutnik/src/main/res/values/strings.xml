@@ -9,11 +9,12 @@
     <string name="zero">0</string>
     <string name="alarms">alarms</string>
     <string name="preferences">preferences</string>
-    <string name="zeroVariables">Wyzeruj zmienne</string>
+    <string name="reset_variables">Wyzeruj zmienne</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
-    <string name="MinutesOfMarch">Minuty Marszu:</string>
-    <string name="MinutesOfRun">Minuty Biegu:</string>
-    <string name="NumbersOfRepeats">Liczba Powtórzeń:</string>
+    <string name="minutes_of_march">Minuty Marszu:</string>
+    <string name="minutes_of_run">Minuty Biegu:</string>
+    <string name="number_of_repeats">Liczba Powtórzeń:</string>
+    <string name="variables_need_to_be_positive">Zmienne muszą być dodatnie!</string>
 
 </resources>

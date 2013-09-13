@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 public class AlarmReceiver extends BroadcastReceiver {
-    public static String ACTION_ALARM = "pl.bresiu.minutnik";
+    public static final String ACTION_ALARM = "pl.bresiu.minutnik";
 
     @Override
     public void onReceive(Context context, Intent intent) {
