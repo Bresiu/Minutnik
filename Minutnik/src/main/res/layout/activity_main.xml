@@ -47,7 +47,7 @@
             android:inputType="number"
             android:ems="3"
             android:gravity="center"
-            android:text="@string/zero" />
+            android:text="@string/one" />
 
         <EditText
             android:id="@+id/editMinutesOfRun"
@@ -58,7 +58,7 @@
             android:inputType="number"
             android:ems="3"
             android:gravity="center"
-            android:text="@string/zero" />
+            android:text="@string/one" />
 
         <EditText
             android:id="@+id/editNumberOfRepeats"
@@ -69,7 +69,7 @@
             android:inputType="number"
             android:ems="3"
             android:gravity="center"
-            android:text="@string/zero" />
+            android:text="@string/one" />
 
         <Button
             android:id="@+id/button"

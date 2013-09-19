@@ -15,9 +15,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+//TODO: wyłaczanie service!
+
 public class MainActivity extends Activity implements View.OnClickListener {
-    final String ALARMS = getString(R.string.alarms);
-    final String PREFERENCES_NAME = getString(R.string.preferences);
+    final String ALARMS = "alarms";
+    final String PREFERENCES_NAME = "preferences";
     private SharedPreferences preferences;
     private SharedPreferences.Editor preferencesEditor;
     private EditText editMarch;
@@ -33,7 +35,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getString(R.string.preferences);
         setContentView(R.layout.activity_main);
         preferences = getSharedPreferences(PREFERENCES_NAME, Activity.MODE_PRIVATE);
         preferencesEditor = preferences.edit();
@@ -54,9 +55,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.zero:
-                editMarch.setText(getString(R.string.zero));
-                editRun.setText(getString(R.string.zero));
-                editRepeats.setText(getString(R.string.zero));
+                editMarch.setText(getString(R.string.one));
+                editRun.setText(getString(R.string.one));
+                editRepeats.setText(getString(R.string.one));
                 break;
             case R.id.button:
                 if (isInt(editMarch)) {
@@ -131,7 +132,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             alarmManager = new AlarmManager[list.size()];
             Calendar cal = Calendar.getInstance();
             for (int i = 0; i < list.size(); i++) {
-                cal.add(Calendar.SECOND, list.get(i));
+                cal.add(Calendar.MINUTE, list.get(i));
                 Intent intent = new Intent(this, AlarmReceiver.class);
                 intent.putExtra(AlarmReceiver.ACTION_ALARM, AlarmReceiver.ACTION_ALARM);
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(this, i, intent, 0);
@@ -173,8 +174,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         return Integer.parseInt(editText.getText().toString());
     }
 
-    private boolean isPositive(int minutesOfMarch, int minutesOfRun, int numberOfRepeates) {
-        return minutesOfMarch > 0 && minutesOfRun > 0 && numberOfRepeates > 0;
+    private boolean isPositive(int minutesOfMarch, int minutesOfRun, int numberOfRepeats) {
+        return minutesOfMarch > 0 && minutesOfRun > 0 && numberOfRepeats > 0;
     }
 
     private void setM(EditText editText, Button btn) {

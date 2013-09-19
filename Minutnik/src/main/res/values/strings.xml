@@ -6,10 +6,8 @@
     <string name="blank" />
     <string name="stop">STOP</string>
     <string name="start">START</string>
-    <string name="zero">0</string>
-    <string name="alarms">alarms</string>
-    <string name="preferences">preferences</string>
-    <string name="reset_variables">Wyzeruj zmienne</string>
+    <string name="one">1</string>
+    <string name="reset_variables">RESET</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="minutes_of_march">Minuty Marszu:</string>
